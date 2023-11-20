@@ -12,5 +12,5 @@ def binary_key(arr:list,low:int,high:int,key:int)->int:
         return -1
 
 arr=[1,2,3]
-key=5
+key=4
 print(binary_key(arr,0,len(arr)-1,key))
