@@ -15,6 +15,26 @@ class Stack:
             print(temp.value)
             temp=temp.next
 
+    def push(self,value):
+        """
+        This method is reponsible for adding elements to the stack.
+        if stack is empty,then it will intilaze top is new_node,
+        if stack is not empty,then new node will map to top node and
+        then top node will update to new node.
+        """
+        new_node=Node(value)
+        if self.height==0:
+            self.top=new_node
+        else:
+            new_node.next=self.top
+            self.top=new_node
+        self.height+=1
+        
+
+
 my_stack=Stack(3)
+my_stack.push(1)
+my_stack.push(5)
+my_stack.push(7)
 my_stack.print_stack()
 
