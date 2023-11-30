@@ -29,6 +29,21 @@ class Stack:
             new_node.next=self.top
             self.top=new_node
         self.height+=1
+        return True
+
+    def pop(self):
+        if self.height == 0:
+            return None
+        else:
+            temp = self.top
+            self.top = self.top.next
+            temp.next = None
+            self.height -= 1
+            return temp
+    
+        
+
+
         
 
 
@@ -37,4 +52,8 @@ my_stack.push(1)
 my_stack.push(5)
 my_stack.push(7)
 my_stack.print_stack()
+print()
+print(my_stack.pop().value,"/n")
+print()
+print(my_stack.print_stack())
 
