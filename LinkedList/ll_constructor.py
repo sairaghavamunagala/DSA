@@ -25,6 +25,7 @@ class LinkedList:
             self.tail.next=new_node
             self.tail=new_node
         self.length+=1
+        return True
 
     def pop(self):
         if self.length==0:
@@ -53,6 +54,7 @@ class LinkedList:
             new_node.next=self.head
             self.head=new_node
         self.length +=1
+        return True
 
     def popfirst(self):
         if self.length==0:
@@ -77,6 +79,19 @@ class LinkedList:
         if temp is not None:
             temp.value=value
 
+    def insert(self,index,value):
+        if index<0 or index>=self.length:
+            return False
+        if index==0:
+            return self.prepend(value)
+        if index==self.length-1:
+            return self.append(value)
+        new_node=Node(value)
+        temp=self.get(index-1)
+        new_node.next=temp.next
+        temp.next=new_node
+        self.length+=1
+        return True
 
 
 my_linked_list=LinkedList(4)
@@ -89,7 +104,7 @@ print()
 # my_linked_list.print_LL()
 # print()
 # my_linked_list.popfirst()
-print(my_linked_list.get(0))
-my_linked_list.set_value(0,8)
+
+my_linked_list.insert(0,8)
 my_linked_list.print_LL()
 # my_linked_list.print_LL()
