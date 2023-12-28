@@ -75,7 +75,6 @@ double_ll.append(3)
 double_ll.append(4)
 double_ll.print_LL()
 print()
-# double_ll.prepend(7)
-double_ll.pop_first()
+
 print()
 double_ll.print_LL()
