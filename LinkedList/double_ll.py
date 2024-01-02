@@ -66,6 +66,20 @@ class DoubleLinkedList:
         self.length-=1
         return temp
 
+    def get(self,index):
+        if index<0 or index>=self.length:
+            return None
+        temp=self.head
+        if index<self.length/2:
+            for _ in range(index):
+                temp=temp.next
+        else:
+            temp=self.tail
+            for _ in range(self.length-1,index,-1):
+                temp=temp.prev
+            
+        return temp.value
+
 
 double_ll=DoubleLinkedList(1)
 double_ll.print_LL()
@@ -75,6 +89,6 @@ double_ll.append(3)
 double_ll.append(4)
 double_ll.print_LL()
 print()
-
+print(double_ll.get(2))
 print()
 double_ll.print_LL()
