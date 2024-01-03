@@ -78,7 +78,14 @@ class DoubleLinkedList:
             for _ in range(self.length-1,index,-1):
                 temp=temp.prev
             
-        return temp.value
+        return temp
+
+    def set_value(self,value:int,index:int)->bool:
+        temp=self.get(index)
+        if temp:
+            temp.value=value
+            return True
+        return False
 
 
 double_ll=DoubleLinkedList(1)
@@ -91,4 +98,5 @@ double_ll.print_LL()
 print()
 print(double_ll.get(2))
 print()
+double_ll.set_value(0,0)
 double_ll.print_LL()
