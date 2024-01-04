@@ -87,6 +87,26 @@ class DoubleLinkedList:
             return True
         return False
 
+    def insert(self,value:int,index:int)->bool:
+        if index<0 or index>self.index>self.length:
+            return False
+        if index==0:
+            self.prepend(value)
+        if index==self.length:
+            self.append(vallue)
+
+        node=Node(value)
+        before=self.get(index-1)
+        after=before.next
+
+        node.next=after
+        node.prev=before
+        before.next=node
+        after.prev=node
+
+        self.length+=1
+        return True
+
 
 double_ll=DoubleLinkedList(1)
 double_ll.print_LL()
