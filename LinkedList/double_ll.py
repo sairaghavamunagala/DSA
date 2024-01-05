@@ -107,6 +107,21 @@ class DoubleLinkedList:
         self.length+=1
         return True
 
+    def remove(self,index):
+        if index<0 or index>self.length:
+            return None
+        if index==0:
+            self.pop_first()
+        if index==self.length-1:
+            self.pop()
+        temp=self.get(index)
+        temp.prev.next=temp.next
+        temp.next.prev=temp.prev
+        temp.next=None
+        temp.prev=None
+
+        self.length-=1
+        return temp.value
 
 double_ll=DoubleLinkedList(1)
 double_ll.print_LL()
@@ -116,7 +131,8 @@ double_ll.append(3)
 double_ll.append(4)
 double_ll.print_LL()
 print()
-print(double_ll.get(2))
+# print(double_ll.get(2))
 print()
-double_ll.set_value(0,0)
+double_ll.remove(1)
+# double_ll.set_value(0,0)
 double_ll.print_LL()
